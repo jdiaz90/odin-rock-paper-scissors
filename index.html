@@ -7,10 +7,20 @@
     <title>Document</title>
     <script>
 
-        function getComputerChoice(){
+        let getComputerChoice = () => {
+
+            const number = Math.floor(Math.random() * 3) + 1
+
+            switch(number){
+                case 1: return 'Rock!'
+                case 2: return 'Paper!'
+                case 3: return 'Scissor!'
+            }
 
         }
-        
+
+        alert(getComputerChoice())
+
     </script>
 </head>
 <body>
