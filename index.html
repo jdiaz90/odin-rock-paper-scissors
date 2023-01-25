@@ -12,14 +12,28 @@
             const number = Math.floor(Math.random() * 3) + 1
 
             switch(number){
-                case 1: return 'Rock!'
-                case 2: return 'Paper!'
-                case 3: return 'Scissor!'
+                case 1: return 'rock'
+                case 2: return 'paper'
+                case 3: return 'scissors'
             }
 
         }
 
-        alert(getComputerChoice())
+        let getPlayerSelection = () => {
+
+            let choice
+
+           do{
+                choice = prompt('Rock, Paper or Scissors?') 
+           }while (
+                choice.toLowerCase() != 'rock' 
+                && choice.toLowerCase() != 'paper' 
+                && choice.toLowerCase() != 'scissors'
+            )
+            return choice
+        }
+
+        alert(getPlayerSelection())
 
     </script>
 </head>
