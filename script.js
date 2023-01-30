@@ -28,7 +28,7 @@ let playRound = (playerSelection, computerSelection) => {
 
   if(playerSelection == computerSelection){
     phrase = ('Draw!')
-    answer.textContent = phrase
+    printRound(phrase, round)
     console.log(phrase)
     return null
   }
@@ -37,36 +37,36 @@ let playRound = (playerSelection, computerSelection) => {
     case 'rock':
         if(computerSelection == 'paper') { 
             let phrase = ("You Lose! Paper beats Rock")
-            answer.textContent = phrase
+            printRound(phrase, round)
             console.log(phrase)
             return false
         } if(computerSelection == 'scissors') {
             let phrase = ("You win! Rock beats Scissors")
-            answer.textContent = phrase
+            printRound(phrase, round)
             console.log(phrase)
             return true
         }
     case 'paper':
         if(computerSelection == 'scissors') {
             let phrase = ("You Lose! Scissors beats Paper")
-            answer.textContent = phrase
+            printRound(phrase, round)
             console.log(phrase)
             return false
         } if(computerSelection == 'rock') {
             let phrase = ("You win! Paper beats Rock")
-            answer.textContent = phrase
+            printRound(phrase, round)
             console.log(phrase)
             return true
         }
     case 'scissors':
         if(computerSelection == 'rock') {
             let phrase = ("You Lose! Rock beats Scissors")
-            answer.textContent = phrase
+            printRound(phrase, round)
             console.log(phrase)
             return false
         } if(computerSelection == 'paper') {
             let phrase = ("You win! Scissors beats Paper")
-            answer.textContent = phrase
+            printRound(phrase, round)
             console.log(phrase)
             return true  
         }
@@ -103,9 +103,35 @@ let score = (result) => {
 let printResult = (text) => {
 
     const divResult = document.createElement('div')
-    divResult.textContent = text
+    const top = document.createElement('p')
+    const bottom = document.createElement('p')
+
+    top.textContent = 'Final Score:'
+    bottom.textContent = text
+
     divResult.classList.add('result')
+    divResult.append(top)
+    divResult.append(bottom)
+
     document.querySelector('body').append(divResult)
     document.querySelector('.options').remove()
+
+}
+
+let printRound = (text, round) => {
+
+    const div = document.querySelector('.message')
+    const top = document.createElement('p')
+    const bottom = document.createElement('p')
+
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+      }
+
+    top.textContent = `Round ${round + 1}:`
+    bottom.textContent = text
+
+    div.append(top)
+    div.append(bottom)
 
 }
