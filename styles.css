@@ -42,6 +42,10 @@ h1{
     width: 50%;
 }
 
+.message .bolder, .result .bolder{
+    font-weight: bolder;
+}
+
 .message p, .result p{
     margin:0;
 }

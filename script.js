@@ -117,15 +117,16 @@ let printResult = (text, gif) => {
     top.textContent = 'Final Score:'
     bottom.textContent = text
     img.src = gif
-    img.classList.add('gif-result')
 
+    top.classList.add('bolder')
+    img.classList.add('gif-result')
     divResult.classList.add('result')
+
     divResult.append(top)
     divResult.append(bottom)
-    document.querySelector('body')
-
     document.querySelector('body').append(divResult)
     document.querySelector('body').append(img)
+    
     document.querySelector('.options').remove()
 
 }
@@ -142,6 +143,8 @@ let printRound = (text, round) => {
 
     top.textContent = `Round ${round + 1}:`
     bottom.textContent = text
+
+    top.classList.add('bolder')
 
     div.append(top)
     div.append(bottom)
