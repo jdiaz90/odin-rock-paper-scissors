@@ -1,8 +1,16 @@
-let buttons = Array.from(document.querySelectorAll('.options img'))
+const buttons = Array.from(document.querySelectorAll('.options img'))
 
 buttons.forEach((item) => item.addEventListener('click', 
-    (e) => playRound(e.target.id, getComputerChoice()
-)))
+    (e) => {
+        score(playRound(e.target.id, getComputerChoice())) 
+    }
+))
+
+const answer = document.querySelector('.message')
+
+let playerPoints = 0,
+computerPoints = 0
+round = 0
 
 let getComputerChoice = () => {
 
@@ -95,4 +103,24 @@ let game = () => {
     
 }
 
-//game()
+let score = (result) => {
+
+        if(result == false) {
+            computerPoints++
+        } else if(result == true) {
+            playerPoints++
+        }     
+    
+    round++
+    const score = '(' + playerPoints + ' - ' + computerPoints + ')'        
+
+    if(round == 5){
+        if(playerPoints > computerPoints)
+            alert(`You win! ${score}`)
+        else if(playerPoints < computerPoints)
+            alert(`You lose! ${score}`)
+        else
+            alert(`Draw! ${score}`)
+    }
+
+}
