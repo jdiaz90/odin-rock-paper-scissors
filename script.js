@@ -83,37 +83,49 @@ let score = (result) => {
     
     round++
     const score = '(' + playerPoints + ' - ' + computerPoints + ')'      
-    let text  
+    let text, gif
 
     if(round == 5){
         
-        if(playerPoints > computerPoints)
+        if(playerPoints > computerPoints) {
             text = `You win! ${score}`
-        else if(playerPoints < computerPoints)
-            text = `You lose! ${score}`
-        else
-            text = `Draw! ${score}`
+            gif = './images/win.gif'
 
-        printResult(text)
+        } else if(playerPoints < computerPoints) {
+            text = `You lose! ${score}`
+            gif = './images/lose.gif'
+
+        } else {
+            text = `Draw! ${score}`
+            gif = './images/draw.gif'
+        }
+
+
+        printResult(text, gif)
 
     }
 
 }
 
-let printResult = (text) => {
+let printResult = (text, gif) => {
 
     const divResult = document.createElement('div')
     const top = document.createElement('p')
     const bottom = document.createElement('p')
+    const img = document.createElement('img')
 
     top.textContent = 'Final Score:'
     bottom.textContent = text
+    img.src = gif
+    img.classList.add('gif-result')
 
     divResult.classList.add('result')
     divResult.append(top)
     divResult.append(bottom)
+    document.querySelector('body')
 
     document.querySelector('body').append(divResult)
+    document.querySelector('body').append(img)
     document.querySelector('.options').remove()
 
 }

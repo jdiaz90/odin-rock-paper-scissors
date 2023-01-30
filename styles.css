@@ -45,3 +45,7 @@ h1{
 .message p, .result p{
     margin:0;
 }
+
+img.gif-result{
+    height: 250px;
+}
