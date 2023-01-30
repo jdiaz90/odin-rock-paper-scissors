@@ -1,3 +1,9 @@
+let buttons = Array.from(document.querySelectorAll('.options img'))
+
+buttons.forEach((item) => item.addEventListener('click', 
+    (e) => playRound(e.target.id, getComputerChoice()
+)))
+
 let getComputerChoice = () => {
 
     const number = Math.floor(Math.random() * 3) + 1
@@ -10,50 +16,50 @@ let getComputerChoice = () => {
 
 }
 
-let getPlayerSelection = () => {
-
-    let choice
-
-   do{
-        choice = prompt('Rock, Paper or Scissors?') 
-   }while (
-        choice.toLowerCase() != 'rock' 
-        && choice.toLowerCase() != 'paper' 
-        && choice.toLowerCase() != 'scissors'
-    )
-    return choice.toLowerCase()
-}
-
 let playRound = (playerSelection, computerSelection) => {
 
   if(playerSelection == computerSelection){
-    alert('Draw!')
+    phrase = ('Draw!')
+    answer.textContent = phrase
+    console.log(phrase)
     return null
   }
 
   switch(playerSelection){
     case 'rock':
         if(computerSelection == 'paper') { 
-            alert("You Lose! Paper beats Rock")
+            let phrase = ("You Lose! Paper beats Rock")
+            answer.textContent = phrase
+            console.log(phrase)
             return false
         } if(computerSelection == 'scissors') {
-            alert("You win! Rock beats Scissors")
+            let phrase = ("You win! Rock beats Scissors")
+            answer.textContent = phrase
+            console.log(phrase)
             return true
         }
     case 'paper':
         if(computerSelection == 'scissors') {
-            alert("You Lose! Scissors beats Paper")
+            let phrase = ("You Lose! Scissors beats Paper")
+            answer.textContent = phrase
+            console.log(phrase)
             return false
         } if(computerSelection == 'rock') {
-            alert("You win! Paper beats Rock")
+            let phrase = ("You win! Paper beats Rock")
+            answer.textContent = phrase
+            console.log(phrase)
             return true
         }
     case 'scissors':
         if(computerSelection == 'rock') {
-            alert("You Lose! Rock beats Scissors")
+            let phrase = ("You Lose! Rock beats Scissors")
+            answer.textContent = phrase
+            console.log(phrase)
             return false
         } if(computerSelection == 'paper') {
-            alert("You win! Scissors beats Paper")
+            let phrase = ("You win! Scissors beats Paper")
+            answer.textContent = phrase
+            console.log(phrase)
             return true  
         }
     }              
@@ -81,12 +87,12 @@ let game = () => {
     const result = '(' + playerPoints + ' - ' + computerPoints + ')'
 
     if(playerPoints > computerPoints)
-        alert(`You win! ${result}`)
+        answer.textContent = (`You win! ${result}`)
     else if(playerPoints < computerPoints)
-        alert(`You lose! ${result}`)
+        answer.textContent = (`You lose! ${result}`)
     else
-        alert(`Draw! ${result}`)
+        answer.textContent = (`Draw! ${result}`)
     
 }
 
-game()
+//game()
