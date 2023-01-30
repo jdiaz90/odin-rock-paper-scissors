@@ -73,36 +73,6 @@ let playRound = (playerSelection, computerSelection) => {
     }              
 }
 
-let game = () => {
-
-    let playerPoints = 0,
-    computerPoints = 0
-
-    for (let i = 0; i < 5; i++) {
-
-        let playerSelection = getPlayerSelection()
-        let computerSelection = getComputerChoice()
-        let result = playRound(playerSelection, computerSelection)
-
-        if(result == false) {
-            computerPoints++
-        } else if(result == true) {
-            playerPoints++
-        } 
-
-    }       
-
-    const result = '(' + playerPoints + ' - ' + computerPoints + ')'
-
-    if(playerPoints > computerPoints)
-        answer.textContent = (`You win! ${result}`)
-    else if(playerPoints < computerPoints)
-        answer.textContent = (`You lose! ${result}`)
-    else
-        answer.textContent = (`Draw! ${result}`)
-    
-}
-
 let score = (result) => {
 
         if(result == false) {
