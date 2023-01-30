@@ -82,15 +82,30 @@ let score = (result) => {
         }     
     
     round++
-    const score = '(' + playerPoints + ' - ' + computerPoints + ')'        
+    const score = '(' + playerPoints + ' - ' + computerPoints + ')'      
+    let text  
 
     if(round == 5){
+        
         if(playerPoints > computerPoints)
-            alert(`You win! ${score}`)
+            text = `You win! ${score}`
         else if(playerPoints < computerPoints)
-            alert(`You lose! ${score}`)
+            text = `You lose! ${score}`
         else
-            alert(`Draw! ${score}`)
+            text = `Draw! ${score}`
+
+        printResult(text)
+
     }
+
+}
+
+let printResult = (text) => {
+
+    const divResult = document.createElement('div')
+    divResult.textContent = text
+    divResult.classList.add('result')
+    document.querySelector('body').append(divResult)
+    document.querySelector('.options').remove()
 
 }
